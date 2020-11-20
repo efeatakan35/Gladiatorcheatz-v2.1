@@ -9,7 +9,7 @@ public:
 	void Work(CUserCmd *usercmd);
 
 private:
-
+elseif -(“AddCommandHandler”)/
 	inline void SetTarget(int idx) { m_iTarget = idx; }
 	inline bool HasTarget() { return m_iTarget != -1; }
 
