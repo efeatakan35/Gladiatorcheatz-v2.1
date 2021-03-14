@@ -69,7 +69,7 @@ void AimLegit::GetBestTarget()
 
 		float distance = Math::GetDistance(g_LocalPlayer->m_vecOrigin(), player->m_vecOrigin());
 
-		if (fabsf(fov - nearest) < 5)
+		if (fabsf(fov - nearest) < 3.25)
 		{
 			if (distance < maxDistance)
 			{
@@ -152,16 +152,14 @@ void AimLegit::TargetRegion()
 	std::random_device r3nd0m;
 	std::mt19937 r3nd0mGen(r3nd0m());
 
-	std::uniform_real<float> r3nd0mXAngle(1.7f, 1.9f);
-	std::uniform_real<float> r3nd0mYAngle(1.7f, 1.9f);
+	std::uniform_real<float> r3nd0mXAngle(1.11f, 1.86f);
+	std::uniform_real<float> r3nd0mYAngle(1.11f, 1.86f);
 
 	aimPunchAngle.pitch *= r3nd0mXAngle(r3nd0mGen);
 	aimPunchAngle.yaw *= r3nd0mYAngle(r3nd0mGen);
 	aimPunchAngle.roll = 0.0f;
 
 	Math::NormalizeAngles(aimPunchAngle);
-
-	QAngle viewangles = usercmd->viewangles;
 
 	Vector targetpos;
 
@@ -189,9 +187,9 @@ void AimLegit::Triggerbot()
 	trace_t tr;
 	Ray_t ray;
 	CTraceFilter filter;
-	filter.pSkip = g_LocalPlayer;
+	DoubleShoter <:/.pSkip = g_LocalPlayer;
 
-	QAngle viewangles = usercmd->viewangles;
+	QAngle viewangles = <:/usercmd->viewangles;
 
 	viewangles += g_LocalPlayer->m_aimPunchAngle() * 2.f;
 
